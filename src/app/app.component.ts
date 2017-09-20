@@ -11,44 +11,23 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  mockData;
+  public mockData:any = {};
   user:FormGroup;
   risk:FormGroup;
-  today: number = Date.now();
+
   public myDatePickerOptions: IMyDpOptions = {
     dateFormat: 'mm/dd/yyyy',    
     inline: false,
     showClearDateBtn:false
   };
+
   constructor(private detailsService:DetailsService) {    
-     this.detailsService.getMockData().subscribe(result => {
-      console.log(result);
+    this.detailsService.getMockData().subscribe(result => {
       this.mockData = result.mockData;
     });
   }
 
-  // public user: FormGroup = {
-  //   type: String,
-  //   referenceEntity: String,
-  //   creditTemplate: String,
-  //   restructuring: String,
-  //   seniority: String,
-  //   startDate: String,
-  //   currency: String,
-  //   paymentFrequency: String,
-  //   maturityDate: String,
-  //   dateRoll: String,
-  //   coupon: String,
-  //   quantity: String,
-  //   dayCount: String,
-  //   recovery: String,
-  //   buySell: String
-  // }
-  ngOnInit(){
-    this.mockData = this.detailsService.getMockData().subscribe(result => {
-      return result.mockData;
-    });
-    let d = new Date();
+  ngOnInit(){ 
     this.risk = new FormGroup({
       payrate: new FormControl(82.20,[Validators.required]),
       mtm: new FormControl(64.54,[Validators.required]),
@@ -73,28 +52,27 @@ export class AppComponent {
       recovery: new FormControl('40',[Validators.required]),
       buySell: new FormControl('Buy',[Validators.required]),
     });   
-    // '02/17/2015'
+
     this.user.patchValue({startDate: {
       date: {
           year: 2015,
           month: 3,
           day: 17}
       }});
-    // this.user.patchValue({maturityDate: Date.now()});
+
     this.user.patchValue({maturityDate: {
       date: {
           year: 2015,
           month: 3,
           day: 17}
       }});
-
-      
    
   }
  
   onSubmit(data){
     console.log(data._value);
     this.detailsService.postInstrumentDetails(data._value).subscribe(result => {
+      alert(result.message);
       console.log(result);
     });
   }
@@ -103,8 +81,7 @@ export class AppComponent {
     console.log(data._value);
     this.detailsService.postRiskDetails(data._value).subscribe(result => {
       console.log(result);
+      alert(result.message);
     });
-  }
-
-  
+  }  
 }

@@ -203,7 +203,6 @@
                       </td>                      
                       <td>ir01:</td>
                       <td><input [ngClass]="(risk._value.ir01<0)?'negative':'positive'" class="form-control" type="number" formControlName="ir01">
-                        {{risk._value.ir01| numberFormat}}
                           <div *ngIf="risk.controls['ir01'].errors && !risk.controls['ir01'].pristine" class="error-msg">
                               <div [hidden]="!risk.controls['ir01'].errors.required">ir01 is required.</div>
                             </div>
