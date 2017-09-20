@@ -1,0 +1,50 @@
+{
+  "mockData" : {
+    "referenceEntity" : [
+      "IBM Corporation",
+      "CTS Corpotration"
+    ],
+      "creditTemplate": [
+        "SNAC",
+        "MNAC"
+      ],
+      "restructuring": [
+        "MR",
+        "MS"
+      ],
+      "seniority": [
+        "Senior Unsecured",
+        "Senior Secured"
+      ],      
+      "currency": [
+        "USD",
+        "INR"
+      ],
+      "paymentFrequency": [
+        "Quarterly",
+        "Halfyearly",
+        "Anually"
+      ],
+      "dateRoll": [
+        "Modified Following",
+        "Following"
+      ],
+      "coupon": [
+        500
+      ],
+      "quantity": [
+        10000000.00
+      ],
+      "dayCount": [
+        "ACT360",
+        "ACT180"
+      ],
+      "recovery": [
+        40
+      ],
+      "buySell": [
+        "Buy",
+        "Sell"
+      ]  
+  }
+}

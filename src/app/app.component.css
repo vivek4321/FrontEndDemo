@@ -1,0 +1,43 @@
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .error-msg{
+    color: red;
+  }
+
+  .form-control { 
+    width: 280px;
+ }
+
+ .dateWidth {
+  width: 280px;
+ }
+
+ tr td{
+   margin: 10px;
+   padding: 2px;
+ }
+
+ fieldset.scheduler-border {
+  border: 1px groove #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+}
+
+  legend.scheduler-border {
+      font-size: 1.2em !important;
+      font-weight: bold !important;
+      text-align: left !important;
+      width:auto;
+      padding:0 10px;
+      border-bottom:none;
+  }
+
+  .positive {
+    color: green;
+  }
+
+  .negative {
+    color: red;
+  }

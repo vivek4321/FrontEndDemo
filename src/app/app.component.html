@@ -1,0 +1,219 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div class="row">
+      <ul class="nav nav-tabs">
+          <li role="presentation" class="active"><a href="#">Home</a></li>
+          <li role="presentation"><a href="#">Profile</a></li>
+          <li role="presentation"><a href="#">Messages</a></li>
+          <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+        <form (ngSubmit)="user.valid && onSubmit(user)" [formGroup]="user">
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Instrument Details</legend>
+            <table style="width:100%" class="table-responsive">                
+                <tr>
+                  <td>Type:</td>
+                  <td><input class="form-control" type="text" formControlName="type">
+                  <div *ngIf="user.controls['type'].errors && !user.controls['type'].pristine" class="error-msg">
+                      <div [hidden]="!user.controls['type'].errors.required">type is required.</div>
+                    </div>
+                  </td>
+                  <td></td> 
+                  <td></td>                 
+                </tr> 
+                <tr>
+                  <td>referenceEntity:</td>
+                  <td><input class="form-control" type="text" list="refEnt" formControlName="referenceEntity">
+                    <datalist id="refEnt">
+                        <option *ngFor="let ref of mockData.referenceEntity"
+                            [value]="ref">
+                              {{ref}}
+                        </option>
+                      </datalist>
+                      <div *ngIf="user.controls['referenceEntity'].errors && !user.controls['referenceEntity'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['referenceEntity'].errors.required">referenceEntity is required.</div>
+                        </div>
+                  </td>
+                  <td>creditTemplate:</td>
+                  <td><input class="form-control" type="text" list="CT" formControlName="creditTemplate">
+                    <datalist id="CT">
+                        <option *ngFor="let ref of mockData.creditTemplate"
+                            [value]="ref">
+                              {{ref}}
+                        </option>
+                      </datalist>
+                      <div *ngIf="user.controls['creditTemplate'].errors && !user.controls['creditTemplate'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['creditTemplate'].errors.required">creditTemplate is required.</div>
+                        </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>restructuring:</td>
+                  <td><select class="form-control" formControlName="restructuring">                    
+                        <option *ngFor="let ref of mockData.restructuring"
+                            [value]="ref">
+                              {{ref}}
+                        </option>
+                        </select>
+                      <div *ngIf="user.controls['restructuring'].errors && !user.controls['restructuring'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['restructuring'].errors.required">restructuring is required.</div>
+                        </div>
+                  </td>
+                  <td>seniority:</td>
+                  <td><input class="form-control" type="text" list="seniority" formControlName="seniority">
+                    <datalist id="seniority">
+                        <option *ngFor="let ref of mockData.seniority"
+                            [value]="ref">
+                              {{ref}}
+                        </option>
+                      </datalist>
+                      <div *ngIf="user.controls['seniority'].errors && !user.controls['seniority'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['seniority'].errors.required">seniority is required.</div>
+                        </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>startDate:</td>
+                  <td>
+                      <div class="dateWidth">
+                          <my-date-picker  name="mydate" [options]="myDatePickerOptions"
+                          formControlName="startDate"></my-date-picker>
+                      </div>
+                      <div *ngIf="user.controls['startDate'].errors && !user.controls['startDate'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['startDate'].errors.required">startDate is required.</div>
+                        </div>                    
+                  </td>
+                  <td>currency:</td>
+                  <td><input class="form-control" type="text" list="currency" formControlName="currency">
+                      <datalist id="currency">
+                        <option *ngFor="let ref of mockData.currency"
+                            [value]="ref">
+                              {{ref}}
+                        </option>
+                      </datalist>
+                      <div *ngIf="user.controls['currency'].errors && !user.controls['currency'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['currency'].errors.required">currency is required.</div>
+                        </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>paymentFrequency:</td>
+                  <td><input class="form-control" type="text" list="paymentFreq" formControlName="paymentFrequency">
+                    <datalist id="paymentFreq">
+                        <option *ngFor="let ref of mockData.paymentFrequency"
+                            [value]="ref">
+                              {{ref}}
+                        </option>
+                      </datalist>
+                      <div *ngIf="user.controls['paymentFrequency'].errors && !user.controls['paymentFrequency'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['paymentFrequency'].errors.required">paymentFrequency is required.</div>
+                        </div>
+                  </td>
+                  <td>maturityDate:</td>
+                  <td>
+                      <div class="dateWidth">
+                        <my-date-picker name="mydate" [options]="myDatePickerOptions"
+                        formControlName="maturityDate"></my-date-picker>                        
+                      </div>
+                      <div *ngIf="user.controls['maturityDate'].errors && !user.controls['maturityDate'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['maturityDate'].errors.required">maturityDate is required.</div>
+                        </div> 
+                  </td>
+                </tr>
+                <tr>
+                  <td>dateRoll:</td>
+                  <td><input class="form-control" type="text" list="dateRoll" formControlName="dateRoll">
+                      <datalist id="dateRoll">
+                        <option *ngFor="let ref of mockData.dateRoll"
+                            [value]="ref">
+                              {{ref}}
+                        </option>
+                      </datalist>
+                      <div *ngIf="user.controls['dateRoll'].errors && !user.controls['dateRoll'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['dateRoll'].errors.required">dateRoll is required.</div>
+                        </div>
+                  </td>
+                  <td>coupon:</td>
+                  <td><input class="form-control" [ngClass]="(user._value.coupon<0)?'negative':'positive'" type="number" formControlName="coupon"></td>
+                </tr>
+                <tr>
+                  <td>quantity:</td>
+                  <td><input [ngClass]="(user._value.quantity<0)?'negative':'positive'" class="form-control" type="number" step="0.01" formControlName="quantity"></td>
+                  <td>dayCount:</td>
+                  <td><input class="form-control" type="text" list="dayCount" formControlName="dayCount">
+                      <datalist id="dayCount">
+                        <option *ngFor="let ref of mockData.dayCount"
+                            [value]="ref">
+                              {{ref}}
+                        </option>
+                      </datalist>
+                      <div *ngIf="user.controls['dayCount'].errors && !user.controls['dayCount'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['dayCount'].errors.required">dayCount is required.</div>
+                        </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>recovery:</td>
+                  <td><input class="form-control" [ngClass]="(user._value.recovery<0)?'negative':'positive'" type="number" formControlName="recovery"></td>
+                  <td>Buy / Sell:</td>
+                  <td><input class="form-control" type="buySell" list="buySell" formControlName="buySell">
+                      <datalist id="buySell">
+                        <option *ngFor="let ref of mockData.buySell"
+                            [value]="ref">
+                              {{ref}}
+                        </option>
+                      </datalist>
+                      <div *ngIf="user.controls['buySell'].errors && !user.controls['buySell'].pristine" class="error-msg">
+                          <div [hidden]="!user.controls['buySell'].errors.required">Buy or Sell is required.</div>
+                        </div>
+                  </td>
+                </tr>
+            </table>
+
+            <input class="pull-right btn btn-md " [disabled]="user.invalid" type="submit" value="Submit">
+          </fieldset>
+        </form>
+        <form (ngSubmit)="risk.valid && onRiskSubmit(risk)" [formGroup]="risk">
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Risk Details</legend>
+                <table style="width:100%">                
+                    <tr>
+                      <td>Pay Rate:</td>
+                      
+                      <td><input [ngClass]="(risk._value.payrate<0)?'negative':'positive'" class="form-control" type="number" formControlName="payrate">                        
+                          <div *ngIf="risk.controls['payrate'].errors && !risk.controls['payrate'].pristine" class="error-msg">
+                              <div [hidden]="!risk.controls['payrate'].errors.required">payrate is required.</div>
+                            </div>
+                      </td>
+                      <td>mtm:</td>
+                      <td><input [ngClass]="(risk._value.mtm<0)?'negative':'positive'" class="form-control" type="number"  formControlName="mtm">
+                        
+                          <div *ngIf="risk.controls['mtm'].errors && !risk.controls['mtm'].pristine" class="error-msg">
+                              <div [hidden]="!risk.controls['mtm'].errors.required">mtm is required.</div>
+                            </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>cr01:</td>
+                      <td><input [ngClass]="(risk._value.cr01<0)?'negative':'positive'" class="form-control" type="number" formControlName="cr01">
+                        
+                          <div *ngIf="risk.controls['cr01'].errors && !risk.controls['cr01'].pristine" class="error-msg">
+                              <div [hidden]="!risk.controls['cr01'].errors.required">cr01 is required.</div>
+                            </div>
+                      </td>                      
+                      <td>ir01:</td>
+                      <td><input [ngClass]="(risk._value.ir01<0)?'negative':'positive'" class="form-control" type="number" formControlName="ir01">
+                        {{risk._value.ir01| numberFormat}}
+                          <div *ngIf="risk.controls['ir01'].errors && !risk.controls['ir01'].pristine" class="error-msg">
+                              <div [hidden]="!risk.controls['ir01'].errors.required">ir01 is required.</div>
+                            </div>
+                      </td>
+                    </tr>
+                </table>
+                <input class="btn btn-md pull-right" [disabled]="risk.invalid" type="submit" value="Submit">
+            </fieldset>
+            
+        </form>
+
+  </div>
+</div>
