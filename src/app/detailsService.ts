@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class DetailsService {
 
-  BaseURL:String = 'http://localhost:3000/api';
+  BaseURL:String = 'https://backend-poc-demo.herokuapp.com/api';
 
   constructor(private http: Http) { 
   }

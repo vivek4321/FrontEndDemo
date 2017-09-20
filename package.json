@@ -2,6 +2,7 @@
   "name": "code-test",
   "version": "0.0.0",
   "license": "MIT",
+  "postinstall": "ng build --aot -prod",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
